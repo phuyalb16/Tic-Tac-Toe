@@ -1,6 +1,9 @@
 import React from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
 import ReactDOM from 'react-dom';
 import './index.css';
+import 'bootstrap/dist/css/bootstrap.min.css'
+
 
 function Square(props) {
   return (
@@ -107,17 +110,27 @@ class Game extends React.Component {
     }
 
     return (
-      <div className="game">
-        <div className="game-board">
+
+      <div className="">
+      <div>
+        <Navbar dark color="secondary">
+          <div className="container">
+            <NavbarBrand href="/">Tic-Tac-Toe</NavbarBrand>
+          </div>
+        </Navbar>
+      </div>
+      <div className="game container mt-3">
+        <div className="game-board ">
+        <div className="mb-3">{status}</div>
           <Board
             squares={current.squares}
             onClick={i => this.handleClick(i)}
           />
         </div>
-        <div className="game-info">
-          <div>{status}</div>
+        <div className="game-info ml-5">
           <ol>{moves}</ol>
         </div>
+      </div>
       </div>
     );
   }
